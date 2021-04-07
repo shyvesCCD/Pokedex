@@ -24,6 +24,8 @@ export const Title = styled.h2`
 `;
 
 export const Cardzinhos = styled.p`
+  display: flex;
+  flex-direction: column;
   width: 55px;
   margin-left: 20px;
   margin-top: 10px;
@@ -33,4 +35,12 @@ export const Cardzinhos = styled.p`
   margin-bottom: 10px;
   font-weight: 700;
   border-radius: 20px;
+`;
+
+export const Image = styled.img`
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

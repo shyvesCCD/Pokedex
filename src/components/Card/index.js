@@ -1,14 +1,17 @@
-import { Container, Title, Cardzinhos } from "./styles";
+import { Container, Title, Cardzinhos, Image } from "./styles";
 
-const Cards = ({ pok }) => {
-  console.log(pok);
+const Cards = ({ name, image, height, weight, kind }) => {
+  console.log(name, image, height, weight, kind);
 
   return (
-    <Container>
-      <Title>{pok}</Title>
-      <Cardzinhos>Grass</Cardzinhos>
-      <Cardzinhos>Poison</Cardzinhos>{" "}
-    </Container>
+    <>
+      <Container>
+        <Title>{name}</Title>
+        <Cardzinhos>{kind}</Cardzinhos>
+        <Cardzinhos>{kind}</Cardzinhos>
+      </Container>
+      <Image src={image} alt="Foto do bichano" />
+    </>
   );
 };
 
