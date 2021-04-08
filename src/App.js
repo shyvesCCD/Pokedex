@@ -10,25 +10,30 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   // #TODO: Aprender a fazer a paginação utilizando essa api.
-  // const handleChangePage = () => {
-  //   api.get(`${nextPage}`).then((response) => {
-  //     setNextPage(response.data.next_page);
-  //   });
-  // };
 
   useEffect(() => {
     api
-      .get(`${nextPage}`)
-      .then((response) => {
+      .get(`pokemons?page=${nextPage}`)
+      .then((response) => response.data)
+      .then((data) => {
         setLoading(true);
-        setPokemons(response.data.data);
+        setPokemons(data.data);
         setLoading(false);
-        console.log(response.data);
+        console.log(data.data);
       })
       .catch((err) => {
         console.error(err);
       });
   }, [nextPage]);
+
+  console.log(pokemons);
+  const handleChangePageNext = () => {
+    setNextPage(nextPage + 1);
+  };
+
+  const handleChangePageDown = () => {
+    setNextPage(nextPage - 1);
+  };
 
   return (
     <>
@@ -46,7 +51,10 @@ function App() {
           />
         ))}
         {/* #TODO: Fazer a paginação */}
-        {/* <button onClick={() => handleChangePage}>Próxima página</button> */}
+        <div className="Container-Buttons">
+          <button onClick={handleChangePageNext}>Próxima página</button>
+          <button onClick={handleChangePageDown}>Voltar página</button>
+        </div>
       </div>
     </>
   );
