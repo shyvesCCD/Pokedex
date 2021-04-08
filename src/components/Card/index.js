@@ -1,7 +1,6 @@
 import { Container, Title, Cardzinhos, Image } from "./styles";
 
 const Cards = ({ name, image, height, weight, kind, loading }) => {
-  console.log(name, image, height, weight, kind);
   if (loading) {
     return (
       <div className="Container-Loading">

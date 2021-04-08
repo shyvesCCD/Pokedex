@@ -23,6 +23,7 @@ function App() {
         setLoading(true);
         setPokemons(response.data.data);
         setLoading(false);
+        console.log(response.data);
       })
       .catch((err) => {
         console.error(err);
@@ -40,9 +41,11 @@ function App() {
             height={pokemon.height}
             weight={pokemon.weight}
             kind={pokemon.kind}
+            key={pokemon.id}
             loading={loading}
           />
         ))}
+        {/* #TODO: Fazer a paginação */}
         {/* <button onClick={() => handleChangePage}>Próxima página</button> */}
       </div>
     </>
