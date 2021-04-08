@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 450px;
   height: 300px;
   border: 1px solid #48d0b0;
@@ -17,7 +18,7 @@ export const Title = styled.h2`
   justify-content: flex-start;
   font-size: 2.5rem;
   margin-left: 1rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   margin-bottom: 2rem;
   color: #fff;
   font-weight: 700;
@@ -38,9 +39,10 @@ export const Cardzinhos = styled.p`
 `;
 
 export const Image = styled.img`
-  width: 90px;
-  height: 90px;
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 2rem;
 `;

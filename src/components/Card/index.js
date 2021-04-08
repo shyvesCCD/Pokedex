@@ -6,11 +6,13 @@ const Cards = ({ name, image, height, weight, kind }) => {
   return (
     <>
       <Container>
-        <Title>{name}</Title>
-        <Cardzinhos>{kind}</Cardzinhos>
-        <Cardzinhos>{kind}</Cardzinhos>
+        <div className="Container-left">
+          <Title>{name}</Title>
+          <Cardzinhos>{kind}</Cardzinhos>
+          <Cardzinhos>{kind}</Cardzinhos>
+        </div>
+        <Image src={image} alt="Foto do bichano" />
       </Container>
-      <Image src={image} alt="Foto do bichano" />
     </>
   );
 };
