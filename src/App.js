@@ -6,16 +6,29 @@ import { api } from "./service/api";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
-  // const [nextPage, setNextPage] = useState(1);
+  const [nextPage, setNextPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  // #TODO: Aprender a fazer a paginação utilizando essa api.
+  // const handleChangePage = () => {
+  //   api.get(`${nextPage}`).then((response) => {
+  //     setNextPage(response.data.next_page);
+  //   });
+  // };
 
   useEffect(() => {
-    api.get("1").then((response) => setPokemons(response.data.data));
-  }, []);
+    api
+      .get(`${nextPage}`)
+      .then((response) => {
+        setLoading(true);
+        setPokemons(response.data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [nextPage]);
 
-  // const handleChangePage = () => {
-  //   setNextPage(nextPage + 1);
-  // };
-  console.log(pokemons);
   return (
     <>
       <Header />
@@ -27,6 +40,7 @@ function App() {
             height={pokemon.height}
             weight={pokemon.weight}
             kind={pokemon.kind}
+            loading={loading}
           />
         ))}
         {/* <button onClick={() => handleChangePage}>Próxima página</button> */}
