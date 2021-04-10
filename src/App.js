@@ -62,6 +62,7 @@ export function App() {
             weight={pokemon.weight}
             kind={pokemon.kind}
             key={pokemon.id}
+            id={pokemon.id}
             loading={loading}
           />
         ))}

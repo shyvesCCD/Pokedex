@@ -1,12 +1,12 @@
-import { Title } from "./styles";
+import { Button, Title } from "./styles";
 
 const Header = ({ handleOpenModal }) => {
   return (
     <>
       <Title>Pokedex</Title>
-      <button type="button" onClick={handleOpenModal}>
+      <Button type="button" onClick={handleOpenModal}>
         Logar
-      </button>
+      </Button>
     </>
   );
 };
