@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Title = styled.h1`
   display: flex;
   justify-content: center;
-  color: #181820;
+  color: #f9f9f9;
   margin-top: 2rem;
 `;
 
@@ -12,7 +12,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
 
-  background: #33cc95;
+  background: #21212b;
   border: none;
   border-radius: 0.35rem;
   transition: filter 0.2s;

@@ -20,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     --steel: #B8B8D0;
     --fairy: #F0B6BC;
     --ground: #E0C068;
-    background-color: #b8c6db;
-    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    background-color: #181820;
+    /* background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%); */
     min-height: 100vh;
   }
 
