@@ -16,6 +16,7 @@ export const Container = styled.form`
     width: 400px;
     padding: 0 1.5rem;
     height: 4rem;
+    border-radius: 0.4rem;
 
     border: 1px solid #d7d7d7;
     background: #e7e9ee;
@@ -24,7 +25,8 @@ export const Container = styled.form`
   }
 
   button {
-    background: #33cc95;
+    cursor: pointer;
+    background: #21212b;
     width: 400px;
     height: 4rem;
     border: none;

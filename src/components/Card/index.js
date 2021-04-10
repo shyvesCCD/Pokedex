@@ -14,7 +14,7 @@ const Cards = ({ name, image, kind, loading, id }) => {
         <Container types={types[0]}>
           <div className="Container-left">
             <Title>{name}</Title>
-            <Title>#{id}</Title>
+            <Title>#{String(id).padStart(3, "0")}</Title>
             {types.map((type) => (
               <Cardzinhos key={Math.random()} type={type}>
                 {type}

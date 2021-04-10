@@ -68,12 +68,12 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 700px;
+    max-width: 400px;
     background-color: #b8c6db;
     padding: 3rem;
     background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
-    min-height: 576px;
+    min-height: 400px;
     position: relative;
-    border-radius: 0.35rem;
+    border-radius: 0.5rem;
   }
 `;
