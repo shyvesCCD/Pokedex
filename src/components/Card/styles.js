@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.div`
   display: flex;
@@ -39,11 +40,13 @@ export const Cardzinhos = styled.p`
   margin-top: 10px;
   width: 80px;
   height: 40px;
-  background: #181820;
+  background: var(--${(props) => props.type});
   color: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   font-weight: 700;
   border-radius: 20px;
+  filter: brightness(0.9);
 `;
 
 export const Image = styled.img`

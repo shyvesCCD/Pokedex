@@ -4,22 +4,31 @@ import { useEffect, useState } from "react";
 import { api } from "./service/api";
 import Buttons from "./components/Buttons";
 import { GlobalStyle } from "./style/global";
+import Modal from "react-modal";
 
-function App() {
+export function App() {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
+  const [modal, setModal] = useState(false);
+  const [value, setValue] = useState("");
+
+  const handleOpenModal = () => {
+    setModal(true);
+  };
+  const handleClosedModal = () => {
+    setModal(false);
+  };
 
   useEffect(() => {
     api
       .get(`pokemons?page=${nextPage}`)
-      .then((response) => response.data)
-      .then((data) => {
+      .then((response) => {
         setLoading(true);
-        setPokemons(data.data);
+        setPokemons(response.data.data);
         setLoading(false);
-        setPage(data.prev_page);
+        setPage(response.data.prev_page);
       })
       .catch((err) => {
         console.error(err);
@@ -40,7 +49,15 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header handleOpenModal={handleOpenModal} />
+      <Modal isOpen={modal} onRequestClose={handleClosedModal}>
+        <p>Nome de usuário</p>
+        <input
+          type="text"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+      </Modal>
       <div className="Container-Content">
         {pokemons.map((pokemon) => (
           <Card

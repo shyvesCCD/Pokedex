@@ -15,7 +15,7 @@ const Cards = ({ name, image, kind, loading }) => {
           <div className="Container-left">
             <Title>{name}</Title>
             {types.map((type) => (
-              <Cardzinhos>{type}</Cardzinhos>
+              <Cardzinhos type={type}>{type}</Cardzinhos>
             ))}
           </div>
           <Image src={image} alt="Foto do bichano" />
