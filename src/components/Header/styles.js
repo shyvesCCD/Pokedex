@@ -16,8 +16,8 @@ export const Button = styled.button`
   border: none;
   border-radius: 0.35rem;
   transition: filter 0.2s;
-  width: 120px;
-  height: 40px;
+  width: 7.5rem;
+  height: 2.5rem;
 
   color: #f9f9f9;
   font-weight: 700;

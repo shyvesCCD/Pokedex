@@ -13,7 +13,7 @@ export const Container = styled.form`
   }
 
   input {
-    width: 400px;
+    width: 25rem;
     padding: 0 1.5rem;
     height: 4rem;
     border-radius: 0.4rem;
@@ -27,7 +27,7 @@ export const Container = styled.form`
   button {
     cursor: pointer;
     background: #21212b;
-    width: 400px;
+    width: 25rem;
     height: 4rem;
     border: none;
     border-radius: 0.45rem;
@@ -35,5 +35,10 @@ export const Container = styled.form`
     color: #f9f9f9;
     font-weight: 700;
     margin-top: 2rem;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.7);
+    }
   }
 `;

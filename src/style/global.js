@@ -21,7 +21,6 @@ export const GlobalStyle = createGlobalStyle`
     --fairy: #F0B6BC;
     --ground: #E0C068;
     background-color: #181820;
-    /* background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%); */
     min-height: 100vh;
   }
 
@@ -29,6 +28,19 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: "Zilla Slab", serif;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    @media (max-width: 1080px) {
+      font-size: 93.75%;
+    }
+    @media (max-width: 720px) {
+      font-size: 87.5%;
+    }
   }
 
   .Container-Content {
@@ -68,11 +80,11 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
     background-color: #b8c6db;
     padding: 3rem;
     background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
-    min-height: 400px;
+    min-height: 25rem;
     position: relative;
     border-radius: 0.5rem;
   }

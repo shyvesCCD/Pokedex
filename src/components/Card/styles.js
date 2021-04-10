@@ -4,13 +4,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 450px;
-  height: 300px;
+  width: 28.125rem;
+  height: 18.75rem;
 
   background-color: var(--${(props) => props.types});
-  border-radius: 12px;
-  margin-right: 45px;
-  margin-top: 50px;
+  border-radius: 0.75rem;
+  margin-right: 2.813rem;
+  margin-top: 3.125rem;
   transition: filter 0.2s;
 
   &:hover {
@@ -23,7 +23,6 @@ export const Title = styled.h2`
   justify-content: flex-start;
   font-size: 2.5rem;
   margin-left: 1rem;
-  /* margin-top: 2rem; */
   margin-bottom: 2rem;
   color: #fff;
   font-weight: 700;
@@ -34,25 +33,25 @@ export const Cardzinhos = styled.p`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 55px;
-  margin-left: 20px;
-  margin-top: 10px;
-  width: 80px;
-  height: 40px;
+  width: 3.438rem;
+  margin-left: 1.25rem;
+  margin-top: 0.625rem;
+  width: 5rem;
+  height: 2.5rem;
   background: var(--${(props) => props.type});
   color: #fff;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   font-weight: 700;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   filter: brightness(0.9);
 `;
 
 export const Image = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 16.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 2rem;
+  margin-left: 2.5rem;
 `;
