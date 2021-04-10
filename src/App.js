@@ -9,7 +9,7 @@ import LoginModal from "./components/LoginModal";
 
 Modal.setAppElement("#root");
 
-export function App() {
+const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -74,6 +74,6 @@ export function App() {
       <GlobalStyle />
     </>
   );
-}
+};
 
 export default App;
