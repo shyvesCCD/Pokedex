@@ -5,6 +5,9 @@ import { api } from "./service/api";
 import Buttons from "./components/Buttons";
 import { GlobalStyle } from "./style/global";
 import Modal from "react-modal";
+import LoginModal from "./components/LoginModal";
+
+Modal.setAppElement("#root");
 
 export function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -12,7 +15,6 @@ export function App() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [modal, setModal] = useState(false);
-  const [value, setValue] = useState("");
 
   const handleOpenModal = () => {
     setModal(true);
@@ -50,14 +52,7 @@ export function App() {
   return (
     <>
       <Header handleOpenModal={handleOpenModal} />
-      <Modal isOpen={modal} onRequestClose={handleClosedModal}>
-        <p>Nome de usuário</p>
-        <input
-          type="text"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-        />
-      </Modal>
+      <LoginModal isOpen={modal} handleClosedModal={handleClosedModal} />
       <div className="Container-Content">
         {pokemons.map((pokemon) => (
           <Card

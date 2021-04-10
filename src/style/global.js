@@ -50,6 +50,30 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
 
-  .Container-Button {
+  .modal-login {
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-login-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    background-color: #b8c6db;
+    padding: 3rem;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    min-height: 576px;
+    position: relative;
+    border-radius: 0.35rem;
   }
 `;
