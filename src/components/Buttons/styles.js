@@ -4,7 +4,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #61e1c9;
+  background-color: #33cc95;
   width: 250px;
   height: 50px;
   border: none;
@@ -13,6 +13,7 @@ export const Button = styled.button`
   margin-top: 2rem;
   cursor: pointer;
   transition: filter 0.2s;
+  font-weight: 700;
 
   &:hover {
     filter: brightness(0.9);
