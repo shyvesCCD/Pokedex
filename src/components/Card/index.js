@@ -9,7 +9,6 @@ const Cards = ({ name, image, height, weight, kind, loading }) => {
     );
   } else {
     const types = kind.split(";");
-    console.log(types);
     return (
       <>
         <Container>

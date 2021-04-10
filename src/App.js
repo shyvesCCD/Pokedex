@@ -9,8 +9,6 @@ function App() {
   const [nextPage, setNextPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  // #TODO: Aprender a fazer a paginação utilizando essa api.
-
   useEffect(() => {
     api
       .get(`pokemons?page=${nextPage}`)
@@ -50,7 +48,6 @@ function App() {
             loading={loading}
           />
         ))}
-        {/* #TODO: Fazer a paginação */}
         <div className="Container-Buttons">
           <button onClick={handleChangePageNext}>Próxima página</button>
           <button onClick={handleChangePageDown}>Voltar página</button>

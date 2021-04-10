@@ -27,10 +27,13 @@ export const Title = styled.h2`
 export const Cardzinhos = styled.p`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 55px;
   margin-left: 20px;
   margin-top: 10px;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  width: 80px;
+  height: 40px;
   background: #61e1c9;
   color: #fff;
   margin-bottom: 10px;
