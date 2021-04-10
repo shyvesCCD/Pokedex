@@ -8,13 +8,16 @@ const Cards = ({ name, image, height, weight, kind, loading }) => {
       </div>
     );
   } else {
+    const types = kind.split(";");
+    console.log(types);
     return (
       <>
         <Container>
           <div className="Container-left">
             <Title>{name}</Title>
-            <Cardzinhos>{kind}</Cardzinhos>
-            <Cardzinhos>{kind}</Cardzinhos>
+            {types.map((type) => (
+              <Cardzinhos>{type}</Cardzinhos>
+            ))}
           </div>
           <Image src={image} alt="Foto do bichano" />
         </Container>
