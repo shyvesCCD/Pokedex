@@ -1,6 +1,6 @@
 import { Container, Title, Cardzinhos, Image } from "./styles";
 
-const Cards = ({ name, image, height, weight, kind, loading }) => {
+const Cards = ({ name, image, kind, loading }) => {
   if (loading) {
     return (
       <div className="Container-Loading">
@@ -11,7 +11,7 @@ const Cards = ({ name, image, height, weight, kind, loading }) => {
     const types = kind.split(";");
     return (
       <>
-        <Container>
+        <Container types={types[0]}>
           <div className="Container-left">
             <Title>{name}</Title>
             {types.map((type) => (

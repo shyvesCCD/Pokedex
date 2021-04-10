@@ -6,11 +6,16 @@ export const Container = styled.div`
   align-items: center;
   width: 450px;
   height: 300px;
-  border: 1px solid #48d0b0;
-  background-color: #48d0b0;
+
+  background-color: var(--${(props) => props.types});
   border-radius: 12px;
   margin-right: 45px;
   margin-top: 50px;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
 `;
 
 export const Title = styled.h2`
@@ -34,7 +39,7 @@ export const Cardzinhos = styled.p`
   margin-top: 10px;
   width: 80px;
   height: 40px;
-  background: #61e1c9;
+  background: #181820;
   color: #fff;
   margin-bottom: 10px;
   font-weight: 700;

@@ -1,13 +1,15 @@
-import "./style/global.css";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import { useEffect, useState } from "react";
 import { api } from "./service/api";
+import Buttons from "./components/Buttons";
+import { GlobalStyle } from "./style/global";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     api
@@ -17,20 +19,23 @@ function App() {
         setLoading(true);
         setPokemons(data.data);
         setLoading(false);
-        console.log(data.data);
+        setPage(data.prev_page);
       })
       .catch((err) => {
         console.error(err);
       });
   }, [nextPage]);
 
-  console.log(pokemons);
   const handleChangePageNext = () => {
     setNextPage(nextPage + 1);
   };
 
   const handleChangePageDown = () => {
-    setNextPage(nextPage - 1);
+    if (page === null) {
+      alert("Você está na primeira página.");
+    } else {
+      setNextPage(nextPage - 1);
+    }
   };
 
   return (
@@ -48,11 +53,12 @@ function App() {
             loading={loading}
           />
         ))}
-        <div className="Container-Buttons">
-          <button onClick={handleChangePageNext}>Próxima página</button>
-          <button onClick={handleChangePageDown}>Voltar página</button>
-        </div>
       </div>
+      <Buttons
+        handleNext={handleChangePageNext}
+        handlePrevius={handleChangePageDown}
+      />
+      <GlobalStyle />
     </>
   );
 }
