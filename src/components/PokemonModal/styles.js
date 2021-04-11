@@ -40,7 +40,7 @@ export const Cardzinhos = styled.p`
 export const ContainerCard = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
