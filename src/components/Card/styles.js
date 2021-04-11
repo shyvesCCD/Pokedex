@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 28.125rem;
   height: 18.75rem;
+  cursor: pointer;
+  border: none;
 
   background-color: var(--${(props) => props.types});
   border-radius: 0.75rem;

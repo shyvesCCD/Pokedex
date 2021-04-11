@@ -88,4 +88,30 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     border-radius: 0.5rem;
   }
+
+  .modal-pokemon {
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-pokemon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 25rem;
+    background-color: #181820;
+    padding: 3rem;
+    min-height: 25rem;
+    position: relative;
+    border-radius: 0.5rem;
+  }
 `;

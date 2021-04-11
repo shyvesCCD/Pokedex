@@ -12,7 +12,6 @@ Modal.setAppElement("#root");
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [modal, setModal] = useState(false);
 
@@ -27,9 +26,7 @@ const App = () => {
     api
       .get(`pokemons?page=${nextPage}`)
       .then((response) => {
-        setLoading(true);
         setPokemons(response.data.data);
-        setLoading(false);
         setPage(response.data.prev_page);
       })
       .catch((err) => {
@@ -55,16 +52,17 @@ const App = () => {
       <LoginModal isOpen={modal} handleClosedModal={handleClosedModal} />
       <div className="Container-Content">
         {pokemons.map((pokemon) => (
-          <Card
-            name={pokemon.name}
-            image={pokemon.image_url}
-            height={pokemon.height}
-            weight={pokemon.weight}
-            kind={pokemon.kind}
-            key={pokemon.id}
-            id={pokemon.id}
-            loading={loading}
-          />
+          <>
+            <Card
+              name={pokemon.name}
+              image={pokemon.image_url}
+              kind={pokemon.kind}
+              key={pokemon.id}
+              id={pokemon.id}
+              height={pokemon.height}
+              weight={pokemon.weight}
+            />
+          </>
         ))}
       </div>
       <Buttons
