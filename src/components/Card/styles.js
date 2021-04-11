@@ -21,7 +21,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   display: flex;
   justify-content: flex-start;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-left: 1rem;
   margin-bottom: 2rem;
   color: #fff;
