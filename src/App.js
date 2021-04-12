@@ -52,11 +52,13 @@ const App = () => {
 
   return (
     <>
+      <Header handleOpenModal={handleOpenModal} />
       {loading ? (
-        <ClipLoader color={"#21212b"} loading={loading} size={50} />
+        <div className="loading-screen">
+          <ClipLoader color={"#F9F9F9"} loading={loading} size={50} />
+        </div>
       ) : (
         <>
-          <Header handleOpenModal={handleOpenModal} />
           <LoginModal isOpen={modal} handleClosedModal={handleClosedModal} />
           <div className="Container-Content">
             {pokemons.map((pokemon) => (
@@ -77,9 +79,9 @@ const App = () => {
             handleNext={handleChangePageNext}
             handlePrevius={handleChangePageDown}
           />
-          <GlobalStyle />
         </>
       )}
+      <GlobalStyle />
     </>
   );
 };

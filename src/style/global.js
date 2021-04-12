@@ -114,4 +114,11 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     border-radius: 0.5rem;
   }
+
+  .loading-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
