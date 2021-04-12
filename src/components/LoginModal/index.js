@@ -5,7 +5,6 @@ import { api } from "../../service/api";
 
 const LoginModal = ({ isOpen, handleClosedModal }) => {
   const [value, setValue] = useState("");
-  // const [submitted, setSubmitted] = useState(false);
   const [user, setUser] = useState("");
 
   const handleSubmit = (event) => {

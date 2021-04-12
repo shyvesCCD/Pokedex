@@ -32,6 +32,7 @@ const App = () => {
         setPokemons(response.data.data);
         setPage(response.data.prev_page);
         setLoading(false);
+        console.log(response.data);
       })
       .catch((err) => {
         console.error(err);
