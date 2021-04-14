@@ -8,8 +8,9 @@ export const Container = styled.div`
 export const Title = styled.h1`
   display: flex;
   justify-content: center;
-  color: #f9f9f9;
+  color: #fff;
   margin-top: 2rem;
+  font-size: 3.5rem;
 `;
 
 export const Button = styled.button`
