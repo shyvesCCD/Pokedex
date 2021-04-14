@@ -19,7 +19,8 @@ export const Button = styled.button`
     filter: brightness(0.9);
   }
 
-  color: #f9f9f9;
+  color: #b8b8d0;
+  font-size: 1.1rem;
 `;
 
 export const Container = styled.div`

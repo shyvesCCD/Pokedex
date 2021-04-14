@@ -24,7 +24,7 @@ export const Button = styled.button`
   width: 7.5rem;
   height: 3rem;
 
-  color: #f9f9f9;
+  color: #b8b8d0;
   font-weight: 700;
   font-size: 1.1rem;
 
@@ -51,13 +51,13 @@ export const Form = styled.form`
   margin-top: 1.5rem;
 
   img {
-    color: #f9f9f9;
+    color: #b8b8d0;
     margin-left: 0.8rem;
   }
 `;
 
 export const Input = styled.input`
-  color: #f9f9f9;
+  color: #b8b8d0;
   border: none;
   background-color: #181820;
   outline: none;
@@ -77,7 +77,7 @@ export const ButtonSearch = styled.button`
   font-size: 1.05rem;
   font-weight: 700;
   outline: none;
-  color: #f9f9f9;
+  color: #b8b8d0;
   transition: filter 0.2s;
   cursor: pointer;
 
