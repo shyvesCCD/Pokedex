@@ -31,6 +31,7 @@ const Header = ({ handleOpenModal }) => {
             setValue("");
             alert("Pokemon Invalido");
           } else {
+            setValue("");
             setPokemon(response.data);
             handleOpenPokemonSearchModal();
           }
