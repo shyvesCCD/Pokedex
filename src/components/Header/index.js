@@ -21,19 +21,24 @@ const Header = ({ handleOpenModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    api
-      .get(`pokemons/${value}`)
-      .then((response) => {
-        setPokemon(response.data);
-        setValue("");
-      })
-      .then(() => {
-        handleOpenPokemonSearchModal();
-      })
-      .catch((err) => {
-        alert("Pokemon Invalido");
-        // window.location.reload();
-      });
+    if (value === "") {
+      alert("Escreva alguma coisa na sua pesquisa!");
+    } else {
+      api
+        .get(`pokemons/${value}`)
+        .then((response) => {
+          if (response.data == null) {
+            setValue("");
+            alert("Pokemon Invalido");
+          } else {
+            setPokemon(response.data);
+            handleOpenPokemonSearchModal();
+          }
+        })
+        .catch((err) => {
+          alert("Pokemon Invalido");
+        });
+    }
   };
 
   const handleOpenPokemonSearchModal = () => {
@@ -55,7 +60,7 @@ const Header = ({ handleOpenModal }) => {
           <img src={searchImg} alt="Imagem de Busca" />
           <Input
             value={value}
-            onChange={(event) => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value.toLowerCase())}
             placeholder="Pesquise o pokemon"
           ></Input>
           <Button2>Search</Button2>

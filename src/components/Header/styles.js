@@ -78,4 +78,10 @@ export const Button2 = styled.button`
   font-weight: 700;
   outline: none;
   color: #f9f9f9;
+  transition: filter 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
 `;
