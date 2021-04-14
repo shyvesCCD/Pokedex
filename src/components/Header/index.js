@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Title, Form, Input, Container, Button2 } from "./styles";
+import { Button, Title, Form, Input, Container, ButtonSearch } from "./styles";
 import searchImg from "../../assets/search.svg";
 import PokemonSearchModal from "../PokemonSearchModal";
 import { api } from "../../service/api";
@@ -37,6 +37,7 @@ const Header = ({ handleOpenModal }) => {
         })
         .catch((err) => {
           alert("Pokemon Invalido");
+          console.error(err);
         });
     }
   };
@@ -63,7 +64,7 @@ const Header = ({ handleOpenModal }) => {
             onChange={(event) => setValue(event.target.value.toLowerCase())}
             placeholder="Pesquise o pokemon"
           ></Input>
-          <Button2>Search</Button2>
+          <ButtonSearch>Search</ButtonSearch>
         </Form>
         <PokemonSearchModal
           isOpen={modalSearchPokemon}

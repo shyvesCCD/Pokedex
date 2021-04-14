@@ -67,7 +67,7 @@ export const Input = styled.input`
   font-size: 1.1rem;
 `;
 
-export const Button2 = styled.button`
+export const ButtonSearch = styled.button`
   border: none;
   background-color: #21212b;
   border-radius: 2rem;
