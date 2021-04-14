@@ -22,7 +22,7 @@ const Header = ({ handleOpenModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value === "") {
-      alert("Escreva alguma coisa na sua pesquisa!");
+      alert("Ainda não existe um pokemon sem nome, hehe.");
     } else {
       api
         .get(`pokemons/${value}`)

@@ -44,7 +44,7 @@ export const Form = styled.form`
   justify-content: center;
 
   border: 4px solid #21212b;
-  height: 1.875rem;
+  height: 2.075rem;
   padding: 0.5rem 0 0.5rem 0;
   border-radius: 12px;
   margin-left: 4rem;
