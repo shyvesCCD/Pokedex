@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const Title = styled.h1`
   display: flex;
   justify-content: center;
@@ -17,10 +22,11 @@ export const Button = styled.button`
   border-radius: 0.35rem;
   transition: filter 0.2s;
   width: 7.5rem;
-  height: 2.5rem;
+  height: 3rem;
 
   color: #f9f9f9;
   font-weight: 700;
+  font-size: 1.1rem;
 
   margin-left: 3rem;
   cursor: pointer;
@@ -28,4 +34,48 @@ export const Button = styled.button`
   &:hover {
     filter: brightness(0.9);
   }
+
+  margin-top: 1.5rem;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px solid #21212b;
+  height: 1.875rem;
+  padding: 0.5rem 0 0.5rem 0;
+  border-radius: 12px;
+  margin-left: 4rem;
+  margin-top: 1.5rem;
+
+  img {
+    color: #f9f9f9;
+    margin-left: 0.8rem;
+  }
+`;
+
+export const Input = styled.input`
+  color: #f9f9f9;
+  border: none;
+  background-color: #181820;
+  outline: none;
+  width: 100%;
+  padding: 0 0 0 0.5rem;
+  margin-left: 0.25rem;
+  font-size: 1.1rem;
+`;
+
+export const Button2 = styled.button`
+  border: none;
+  background-color: #21212b;
+  border-radius: 2rem;
+  height: 2.2rem;
+  width: 9rem;
+  margin-right: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  outline: none;
+  color: #f9f9f9;
 `;

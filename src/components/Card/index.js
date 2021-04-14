@@ -2,7 +2,7 @@ import { Container, Title, Cardzinhos, Image } from "./styles";
 import { useState } from "react";
 import PokemonModal from "../PokemonModal";
 
-const Cards = ({ name, image, kind, loading, id, height, weight }) => {
+const Cards = ({ name, image, kind, id, height, weight }) => {
   const [modalPokemon, setPokemonModal] = useState(false);
 
   const handleOpenPokemonModal = () => {
