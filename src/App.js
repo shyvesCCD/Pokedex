@@ -14,6 +14,7 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [page, setPage] = useState(0);
+  const [pageNext, setPageNext] = useState(0)
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -31,6 +32,7 @@ const App = () => {
       .then((response) => {
         setPokemons(response.data.data);
         setPage(response.data.prev_page);
+        setPageNext(response.data.next_page)
         setLoading(false);
       })
       .catch((err) => {
@@ -39,7 +41,13 @@ const App = () => {
   }, [nextPage]);
 
   const handleChangePageNext = () => {
-    setNextPage(nextPage + 1);
+    if (pageNext != null) {
+      setNextPage(nextPage + 1);
+    }
+    else {
+      alert("Você está na última página.")
+    }
+    
   };
 
   const handleChangePageDown = () => {
