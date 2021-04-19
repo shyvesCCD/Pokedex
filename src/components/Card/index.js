@@ -12,7 +12,9 @@ const Cards = ({ name, image, kind, id, height, weight }) => {
   const handleClosedPokemonModal = () => {
     setPokemonModal(false);
   };
+
   const types = kind.split(";");
+
   return (
     <>
       <Container types={types[0]} onClick={handleOpenPokemonModal}>

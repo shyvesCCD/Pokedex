@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { Container } from "./styles";
 import { api } from "../../service/api";
@@ -8,19 +8,18 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
   const [user, setUser] = useState("");
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-  
-    if(value === "") {
-      alert("Escreva o nome de usuário")
-    } 
-    else {
+    event.preventDefault();
+
+    if (value === "") {
+      alert("Escreva o nome de usuário");
+    } else {
       api
         .get(`users/${value}`)
         .then((response) => {
-          setUser(response.data.user.username)
-          console.log(user)
-          })
-        .catch(error => alert("O usuário não existe"))
+          setUser(response.data.user.username);
+          console.log(user);
+        })
+        .catch((error) => alert("O usuário não existe"));
     }
   };
 
@@ -37,7 +36,9 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
           type="text"
           value={value}
           placeholder="Ex: gmeyer"
-          onChange={(event) => {setValue(event.target.value)}}
+          onChange={(event) => {
+            setValue(event.target.value);
+          }}
         />
         <button onClick={handleSubmit}>Logar</button>
         <h1>{user}</h1>

@@ -1,39 +1,29 @@
-import Header from "../../components/Header";
 import Card from "../../components/Card";
 import { useEffect, useState } from "react";
 import { api } from "../../service/api";
-import Buttons from "../../components/Buttons";
 import { GlobalStyle } from "../../style/global";
 import Modal from "react-modal";
-import LoginModal from "../../components/LoginModal";
 import ClipLoader from "react-spinners/ClipLoader";
-import RegisterModal from "../../components/RegisterModal"
-
 
 Modal.setAppElement("#root");
 
 const Usuario = () => {
-    const [pokemons, setPokemons] = useState([])
-    const [user, setUser] = useState("")
-    const [loading, setLoading] = useState(false);
+  const [pokemons, setPokemons] = useState([]);
+  const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-      api
-      .get("users/mcpoze")
-      .then((response) => { 
-          setPokemons(response.data.pokemons)
-          console.log(response)
-          setUser(response.data.user.username)
-        })
-  }
-  
-  ,[]) 
-
-
+    setLoading(true);
+    api.get("users/mcpoze").then((response) => {
+      setPokemons(response.data.pokemons);
+      console.log(response);
+      setUser(response.data.user.username);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <>
-      
       <h1>{user}</h1>
       {loading ? (
         <div className="loading-screen">
@@ -41,8 +31,6 @@ const Usuario = () => {
         </div>
       ) : (
         <>
-          
-          
           <div className="Container-Content">
             {pokemons.map((pokemon) => (
               <>
@@ -58,12 +46,11 @@ const Usuario = () => {
               </>
             ))}
           </div>
-         {/* <Buttons
+          {/* <Buttons
             handleNext={handleChangePageNext}
             handlePrevius={handleChangePageDown}
           /> */}
         </>
-    
       )}
       <GlobalStyle />
     </>

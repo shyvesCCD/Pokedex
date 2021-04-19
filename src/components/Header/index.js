@@ -14,7 +14,7 @@ const object = {
   key: Math.random(),
 };
 
-const Header = ({ handleOpenModal , handleOpenRegisterModal}) => {
+const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
   const [value, setValue] = useState("");
   const [pokemon, setPokemon] = useState(object);
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
