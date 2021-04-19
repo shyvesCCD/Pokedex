@@ -1,22 +1,24 @@
-import Header from "./components/Header";
-import Card from "./components/Card";
+import Header from "../../components/Header";
+import Card from "../../components/Card";
 import { useEffect, useState } from "react";
-import { api } from "./service/api";
-import Buttons from "./components/Buttons";
-import { GlobalStyle } from "./style/global";
+import { api } from "../../service/api";
+import Buttons from "../../components/Buttons";
+import { GlobalStyle } from "../../style/global";
 import Modal from "react-modal";
-import LoginModal from "./components/LoginModal";
+import LoginModal from "../../components/LoginModal";
 import ClipLoader from "react-spinners/ClipLoader";
+import RegisterModal from "../../components/RegisterModal"
 
 Modal.setAppElement("#root");
 
-const App = () => {
+const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [page, setPage] = useState(0);
   const [pageNext, setPageNext] = useState(0)
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [modalRegister, setModalRegister] = useState(false)
 
   const handleOpenModal = () => {
     setModal(true);
@@ -24,6 +26,14 @@ const App = () => {
   const handleClosedModal = () => {
     setModal(false);
   };
+
+  const handleOpenRegisterModal = () => {
+    setModalRegister(true);
+  }
+
+  const handleClosedRegisterModal = () => {
+    setModalRegister(false);
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -60,7 +70,7 @@ const App = () => {
 
   return (
     <>
-      <Header handleOpenModal={handleOpenModal} />
+      <Header handleOpenModal={handleOpenModal} handleOpenRegisterModal={handleOpenRegisterModal}/>
       {loading ? (
         <div className="loading-screen">
           <ClipLoader color={"#F9F9F9"} loading={loading} size={50} />
@@ -68,6 +78,7 @@ const App = () => {
       ) : (
         <>
           <LoginModal isOpen={modal} handleClosedModal={handleClosedModal} />
+          <RegisterModal isOpen={modalRegister} handleClosedRegisterModal={handleClosedRegisterModal} /> 
           <div className="Container-Content">
             {pokemons.map((pokemon) => (
               <>
@@ -94,4 +105,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

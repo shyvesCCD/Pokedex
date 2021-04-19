@@ -8,20 +8,21 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
   const [user, setUser] = useState("");
 
   const handleSubmit = (event) => {
-    setValue(event.target.value);
+    event.preventDefault()
+  
+    if(value === "") {
+      alert("Escreva o nome de usuário")
+    } 
+    else {
+      api
+        .get(`users/${value}`)
+        .then((response) => {
+          setUser(response.data.user.username)
+          console.log(user)
+          })
+        .catch(error => alert("O usuário não existe"))
+    }
   };
-
-  useEffect(() => {
-    api
-      .get(`users/${value}`)
-      .then((response) => {
-        setUser(response.data.user.username);
-        console.log(user);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [user, value]);
 
   return (
     <Modal
@@ -36,9 +37,10 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
           type="text"
           value={value}
           placeholder="Ex: gmeyer"
-          onChange={(event) => handleSubmit(event)}
+          onChange={(event) => {setValue(event.target.value)}}
         />
         <button onClick={handleSubmit}>Logar</button>
+        <h1>{user}</h1>
       </Container>
     </Modal>
   );

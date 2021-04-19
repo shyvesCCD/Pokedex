@@ -14,7 +14,7 @@ const object = {
   key: Math.random(),
 };
 
-const Header = ({ handleOpenModal }) => {
+const Header = ({ handleOpenModal , handleOpenRegisterModal}) => {
   const [value, setValue] = useState("");
   const [pokemon, setPokemon] = useState(object);
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
@@ -57,6 +57,9 @@ const Header = ({ handleOpenModal }) => {
       <Container>
         <Button type="button" onClick={handleOpenModal}>
           Logar
+        </Button>
+        <Button type="button" onClick={handleOpenRegisterModal}>
+          Registrar
         </Button>
         <Form onSubmit={handleSubmit}>
           <img src={searchImg} alt="Imagem de Busca" />
