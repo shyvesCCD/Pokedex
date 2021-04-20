@@ -7,8 +7,8 @@ export const Container = styled.form`
   justify-content: center;
 
   h1 {
-    color: #21212b;
-    font-size: 1.5rem;
+    color: #f9f9f9;
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
 
@@ -21,7 +21,7 @@ export const Container = styled.form`
     border: 1px solid #d7d7d7;
     background: #e7e9ee;
 
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   button {
@@ -35,10 +35,10 @@ export const Container = styled.form`
     color: #f9f9f9;
     font-weight: 700;
     margin-top: 2rem;
-    transition: filter 0.2s;
+    transition: filter 0.6s;
 
     &:hover {
-      filter: brightness(0.7);
+      filter: brightness(0.9);
     }
   }
 `;

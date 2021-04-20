@@ -16,15 +16,17 @@ const User = () => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const userLogado = localStorage.getItem("user");
+
   useEffect(() => {
     setLoading(true);
-    api.get("users/mcpoze").then((response) => {
+    api.get(`users/${userLogado}`).then((response) => {
       setPokemons(response.data.pokemons);
       console.log(response);
       setUser(response.data.user.username);
       setLoading(false);
     });
-  }, []);
+  }, [userLogado]);
 
   return (
     <>
@@ -39,7 +41,6 @@ const User = () => {
           textDecoration: "none",
           color: "#FFF",
           fontSize: "1.25rem",
-          maxWidth: "20.5rem",
         }}
       >
         <Button type="button">

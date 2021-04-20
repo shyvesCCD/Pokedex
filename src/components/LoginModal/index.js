@@ -18,14 +18,17 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
       api
         .get(`users/${value}`)
         .then((response) => {
-          userContext.setUser(response.data.user.username);
           handleClosedModal();
+          localStorage.setItem("user", response.data.user.username);
+          window.location.reload();
         })
         .catch((error) => alert("O usuário não existe"));
     }
   };
 
-  console.log(userContext);
+  const user = localStorage.getItem("user");
+
+  userContext.setUser(user);
 
   return (
     <Modal

@@ -32,8 +32,10 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
-  console.log(user);
-  console.log(setUser);
+  const handleLogOut = () => {
+    setUser("");
+    localStorage.removeItem("user");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,7 +78,7 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
             <Introducion>
               Olá, {user.charAt(0).toUpperCase() + user.slice(1)}!
             </Introducion>
-            <Button onClick={() => setUser("")}>
+            <Button onClick={handleLogOut}>
               <FiLogOut style={{ marginRight: "1rem" }} />
               Deslogar
             </Button>
