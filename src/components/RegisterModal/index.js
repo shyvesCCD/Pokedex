@@ -18,6 +18,7 @@ const RegisterModal = ({ isOpen, handleClosedRegisterModal }) => {
           console.log("Usuário criado");
           setUser(value);
           console.log(user);
+          alert("Usuário criado com sucesso!");
           handleClosedRegisterModal();
         })
         .catch((error) => alert("Não foi possível criar o usuário"));

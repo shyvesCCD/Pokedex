@@ -86,3 +86,12 @@ export const ButtonSearch = styled.button`
     filter: brightness(0.9);
   }
 `;
+
+export const Introducion = styled.p`
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+`;

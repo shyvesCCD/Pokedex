@@ -19,6 +19,7 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
         .get(`users/${value}`)
         .then((response) => {
           userContext.setUser(response.data.user.username);
+          handleClosedModal();
         })
         .catch((error) => alert("O usuário não existe"));
     }
