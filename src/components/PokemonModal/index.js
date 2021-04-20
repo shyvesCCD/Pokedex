@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import Modal from "react-modal";
 import { Container, Cardzinhos, ContainerCard } from "./styles";
+import { FiStar } from "react-icons/fi";
+import { api } from "../../service/api";
+import { UserContext } from "../../UserContext";
 
 const PokemonModal = ({
   isOpen,
@@ -12,6 +16,16 @@ const PokemonModal = ({
   kind,
 }) => {
   const types = kind.split(";");
+
+  const { user } = useContext(UserContext);
+
+  const handleStarred = () => {
+    api
+      .post(`users/${user}/starred/${name}`)
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -37,6 +51,13 @@ const PokemonModal = ({
             </Cardzinhos>
           ))}
         </ContainerCard>
+        {user ? (
+          <button type="button" onClick={handleStarred}>
+            <FiStar />
+          </button>
+        ) : (
+          <></>
+        )}
       </Container>
     </Modal>
   );

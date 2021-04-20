@@ -51,9 +51,16 @@ export const Cardzinhos = styled.p`
 
 export const Image = styled.img`
   width: 12.5rem;
-  height: 16.875rem;
+  height: 15.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 2.5rem;
+`;
+
+export const ContainerImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
