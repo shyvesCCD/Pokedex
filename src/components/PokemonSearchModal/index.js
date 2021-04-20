@@ -42,7 +42,7 @@ const PokemonSearchModal = ({
         <h4>
           Esse pokemon se chama {name.charAt(0).toUpperCase() + name.slice(1)},
           seu peso é de {weight}
-          kg e sua altura é e {height}m.
+          kg e sua altura é de {height}m.
         </h4>
         <ContainerCard>
           {types.map((type) => (
