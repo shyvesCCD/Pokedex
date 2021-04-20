@@ -7,6 +7,7 @@ import { FiUserPlus } from "react-icons/fi";
 const RegisterModal = ({ isOpen, handleClosedRegisterModal }) => {
   const [value, setValue] = useState("");
   const [user, setUser] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value === "") {

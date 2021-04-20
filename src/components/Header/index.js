@@ -7,12 +7,14 @@ import {
   Container,
   ButtonSearch,
   Introducion,
+  Button2,
 } from "./styles";
 import searchImg from "../../assets/search.svg";
 import PokemonSearchModal from "../PokemonSearchModal";
 import { api } from "../../service/api";
-import { FiLogIn, FiUserPlus } from "react-icons/fi";
+import { FiArrowRight, FiLogIn, FiUserPlus, FiLogOut } from "react-icons/fi";
 import { UserContext } from "../../UserContext";
+import { Link } from "react-router-dom";
 
 const object = {
   name: "",
@@ -74,7 +76,28 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
             <Introducion>
               Olá, {user.charAt(0).toUpperCase() + user.slice(1)}!
             </Introducion>
-            <Button onClick={() => setUser("")}>Deslogar</Button>
+            <Button onClick={() => setUser("")}>
+              <FiLogOut style={{ marginRight: "1rem" }} />
+              Deslogar
+            </Button>
+            <Link
+              to="/user"
+              style={{
+                textDecoration: "none",
+                color: "#FFF",
+                fontSize: "1.25rem",
+                maxWidth: "20.5rem",
+              }}
+            >
+              <Button2 type="button">
+                Perfil
+                <FiArrowRight
+                  style={{
+                    marginLeft: "1rem",
+                  }}
+                />
+              </Button2>
+            </Link>
           </>
         ) : (
           <>
