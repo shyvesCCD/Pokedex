@@ -121,4 +121,6 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
     justify-content: center;
   }
+  
+  
 `;

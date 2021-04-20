@@ -7,11 +7,12 @@ import Modal from "react-modal";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Title } from "../../components/Header/styles";
 import { Introducion, Button } from "./styles";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
 const User = () => {
+  let history = useHistory();
   const [pokemons, setPokemons] = useState([]);
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,23 +36,14 @@ const User = () => {
       </Title>
       <Introducion>Aqui temos os seus pokemons favoritos!</Introducion>
 
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          color: "#FFF",
-          fontSize: "1.25rem",
-        }}
-      >
-        <Button type="button">
-          <FiHome
-            style={{
-              marginRight: "1rem",
-            }}
-          />
-          Retornar para a Home
-        </Button>
-      </Link>
+      <Button type="button" onClick={() => history.push("/")}>
+        <FiHome
+          style={{
+            marginRight: "1rem",
+          }}
+        />
+        Retornar para a Home
+      </Button>
 
       {loading ? (
         <div className="loading-screen">

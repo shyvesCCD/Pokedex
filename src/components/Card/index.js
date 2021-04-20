@@ -1,7 +1,15 @@
 import { Container, Title, Cardzinhos, Image, ContainerImage } from "./styles";
 import { useState } from "react";
 import PokemonModal from "../PokemonModal";
-const Cards = ({ name, image, kind, id, height, weight }) => {
+const Cards = ({
+  name,
+  image,
+  kind,
+  id,
+  height,
+  weight,
+  pokemonsFavoritados,
+}) => {
   const [modalPokemon, setPokemonModal] = useState(false);
 
   const handleOpenPokemonModal = () => {
@@ -40,6 +48,7 @@ const Cards = ({ name, image, kind, id, height, weight }) => {
         kind={kind}
         key={id}
         id={id}
+        pokemonsFavoritados={pokemonsFavoritados}
       />
     </>
   );

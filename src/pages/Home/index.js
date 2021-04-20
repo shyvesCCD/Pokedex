@@ -21,6 +21,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [modalRegister, setModalRegister] = useState(false);
   const [user, setUser] = useState("");
+  const [pokemonsFavoritados, setPokemonsFavoritados] = useState([]);
 
   const handleOpenModal = () => {
     setModal(true);
@@ -50,7 +51,11 @@ const Home = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, [nextPage]);
+
+    api
+      .get(`users/${user}`)
+      .then((response) => setPokemonsFavoritados(response.data.pokemons));
+  }, [nextPage, user]);
 
   const handleChangePageNext = () => {
     if (pageNext != null) {
@@ -96,6 +101,7 @@ const Home = () => {
                   id={pokemon.id}
                   height={pokemon.height}
                   weight={pokemon.weight}
+                  pokemonsFavoritados={pokemonsFavoritados}
                 />
               </>
             ))}

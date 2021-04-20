@@ -9,6 +9,7 @@ export const Container = styled.div`
   h1 {
     color: #fff;
   }
+
   img {
     width: 16.5rem;
     height: 15.375rem;
@@ -16,6 +17,14 @@ export const Container = styled.div`
 
   h4 {
     color: #fff;
+  }
+
+  .starred {
+    color: yellow;
+  }
+
+  .noStarred {
+    color: black;
   }
 `;
 

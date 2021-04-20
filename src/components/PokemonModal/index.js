@@ -14,9 +14,9 @@ const PokemonModal = ({
   weight,
   image,
   kind,
+  pokemonsFavoritados,
 }) => {
   const types = kind.split(";");
-
   const { user } = useContext(UserContext);
 
   const handleStarred = () => {
@@ -53,7 +53,11 @@ const PokemonModal = ({
         </ContainerCard>
         {user ? (
           <button type="button" onClick={handleStarred}>
-            <FiStar />
+            {pokemonsFavoritados?.some((pokemon) => pokemon.id === id) ? (
+              <FiStar style={{ color: "yellow" }} />
+            ) : (
+              <FiStar style={{ color: "black" }} />
+            )}
           </button>
         ) : (
           <></>
