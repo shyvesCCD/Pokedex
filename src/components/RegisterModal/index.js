@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { Container } from "./styles";
 import { api } from "../../service/api";
+import { FiUserPlus } from "react-icons/fi";
 
 const RegisterModal = ({ isOpen, handleClosedRegisterModal }) => {
   const [value, setValue] = useState("");
@@ -40,7 +41,10 @@ const RegisterModal = ({ isOpen, handleClosedRegisterModal }) => {
             setValue(event.target.value);
           }}
         />
-        <button onClick={handleSubmit}>Registrar</button>
+        <button onClick={handleSubmit}>
+          <FiUserPlus style={{ marginRight: "1rem" }} />
+          Registrar
+        </button>
       </Container>
     </Modal>
   );

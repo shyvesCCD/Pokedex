@@ -3,6 +3,7 @@ import { Button, Title, Form, Input, Container, ButtonSearch } from "./styles";
 import searchImg from "../../assets/search.svg";
 import PokemonSearchModal from "../PokemonSearchModal";
 import { api } from "../../service/api";
+import { FiLogIn, FiUserPlus } from "react-icons/fi";
 
 const object = {
   name: "",
@@ -56,9 +57,11 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
       <Title>Pokedex</Title>
       <Container>
         <Button type="button" onClick={handleOpenModal}>
+          <FiLogIn style={{ marginRight: "1rem" }} />
           Logar
         </Button>
         <Button type="button" onClick={handleOpenRegisterModal}>
+          <FiUserPlus style={{ marginRight: "1rem" }} />
           Registrar
         </Button>
         <Form onSubmit={handleSubmit}>

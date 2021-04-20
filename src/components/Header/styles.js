@@ -22,7 +22,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 0.35rem;
   transition: filter 0.2s;
-  width: 7.5rem;
+  width: 8.5rem;
   height: 3rem;
 
   color: #b8b8d0;

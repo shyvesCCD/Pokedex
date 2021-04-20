@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { Container } from "./styles";
 import { api } from "../../service/api";
+import { FiLogIn } from "react-icons/fi";
 
 const LoginModal = ({ isOpen, handleClosedModal }) => {
   const [value, setValue] = useState("");
@@ -40,7 +41,10 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
             setValue(event.target.value);
           }}
         />
-        <button onClick={handleSubmit}>Logar</button>
+        <button onClick={handleSubmit}>
+          <FiLogIn style={{ marginRight: "1rem" }} />
+          Logar
+        </button>
         <h1>{user}</h1>
       </Container>
     </Modal>
