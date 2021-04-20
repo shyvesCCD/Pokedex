@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Modal from "react-modal";
 import { Container } from "./styles";
 import { api } from "../../service/api";
 import { FiLogIn } from "react-icons/fi";
+import { UserContext } from "../../UserContext";
 
 const LoginModal = ({ isOpen, handleClosedModal }) => {
   const [value, setValue] = useState("");
-  const [user, setUser] = useState("");
+  const userContext = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,12 +18,13 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
       api
         .get(`users/${value}`)
         .then((response) => {
-          setUser(response.data.user.username);
-          console.log(user);
+          userContext.setUser(response.data.user.username);
         })
         .catch((error) => alert("O usuário não existe"));
     }
   };
+
+  console.log(userContext);
 
   return (
     <Modal
@@ -45,7 +47,6 @@ const LoginModal = ({ isOpen, handleClosedModal }) => {
           <FiLogIn style={{ marginRight: "1rem" }} />
           Logar
         </button>
-        <h1>{user}</h1>
       </Container>
     </Modal>
   );

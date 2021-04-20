@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, Title, Form, Input, Container, ButtonSearch } from "./styles";
 import searchImg from "../../assets/search.svg";
 import PokemonSearchModal from "../PokemonSearchModal";
 import { api } from "../../service/api";
 import { FiLogIn, FiUserPlus } from "react-icons/fi";
+import { UserContext } from "../../UserContext";
 
 const object = {
   name: "",
@@ -19,6 +20,9 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
   const [value, setValue] = useState("");
   const [pokemon, setPokemon] = useState(object);
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
+  const { user } = useContext(UserContext);
+
+  console.log(user);
 
   const handleSubmit = (event) => {
     event.preventDefault();

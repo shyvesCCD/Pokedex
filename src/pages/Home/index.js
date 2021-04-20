@@ -7,7 +7,8 @@ import { GlobalStyle } from "../../style/global";
 import Modal from "react-modal";
 import LoginModal from "../../components/LoginModal";
 import ClipLoader from "react-spinners/ClipLoader";
-import RegisterModal from "../../components/RegisterModal"
+import RegisterModal from "../../components/RegisterModal";
+import { UserContext } from "../../UserContext";
 
 Modal.setAppElement("#root");
 
@@ -15,10 +16,11 @@ const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [page, setPage] = useState(0);
-  const [pageNext, setPageNext] = useState(0)
+  const [pageNext, setPageNext] = useState(0);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [modalRegister, setModalRegister] = useState(false)
+  const [modalRegister, setModalRegister] = useState(false);
+  const [user, setUser] = useState("");
 
   const handleOpenModal = () => {
     setModal(true);
@@ -29,11 +31,11 @@ const Home = () => {
 
   const handleOpenRegisterModal = () => {
     setModalRegister(true);
-  }
+  };
 
   const handleClosedRegisterModal = () => {
     setModalRegister(false);
-  }
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +44,7 @@ const Home = () => {
       .then((response) => {
         setPokemons(response.data.data);
         setPage(response.data.prev_page);
-        setPageNext(response.data.next_page)
+        setPageNext(response.data.next_page);
         setLoading(false);
       })
       .catch((err) => {
@@ -53,11 +55,9 @@ const Home = () => {
   const handleChangePageNext = () => {
     if (pageNext != null) {
       setNextPage(nextPage + 1);
+    } else {
+      alert("Você está na última página.");
     }
-    else {
-      alert("Você está na última página.")
-    }
-    
   };
 
   const handleChangePageDown = () => {
@@ -69,8 +69,11 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Header handleOpenModal={handleOpenModal} handleOpenRegisterModal={handleOpenRegisterModal}/>
+    <UserContext.Provider value={{ user, setUser }}>
+      <Header
+        handleOpenModal={handleOpenModal}
+        handleOpenRegisterModal={handleOpenRegisterModal}
+      />
       {loading ? (
         <div className="loading-screen">
           <ClipLoader color={"#F9F9F9"} loading={loading} size={50} />
@@ -78,7 +81,10 @@ const Home = () => {
       ) : (
         <>
           <LoginModal isOpen={modal} handleClosedModal={handleClosedModal} />
-          <RegisterModal isOpen={modalRegister} handleClosedRegisterModal={handleClosedRegisterModal} /> 
+          <RegisterModal
+            isOpen={modalRegister}
+            handleClosedRegisterModal={handleClosedRegisterModal}
+          />
           <div className="Container-Content">
             {pokemons.map((pokemon) => (
               <>
@@ -101,7 +107,7 @@ const Home = () => {
         </>
       )}
       <GlobalStyle />
-    </>
+    </UserContext.Provider>
   );
 };
 

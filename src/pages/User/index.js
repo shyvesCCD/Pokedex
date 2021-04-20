@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
-const Usuario = () => {
+const User = () => {
   const [pokemons, setPokemons] = useState([]);
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
@@ -80,4 +80,4 @@ const Usuario = () => {
   );
 };
 
-export default Usuario;
+export default User;
