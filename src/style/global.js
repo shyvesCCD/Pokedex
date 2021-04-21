@@ -83,7 +83,6 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 25rem;
     background-color: #191720;
     padding: 3rem;
-    /* background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%); */
     min-height: 25rem;
     position: relative;
     border-radius: 0.5rem;

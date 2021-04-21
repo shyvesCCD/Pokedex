@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Modal from "react-modal";
 import { Container, Cardzinhos, ContainerCard } from "./styles";
 import { FiStar } from "react-icons/fi";
@@ -22,16 +22,16 @@ const PokemonModal = ({
   const handleStarred = () => {
     api
       .post(`users/${user}/starred/${name}`)
-      .then((response) => alert("Pokemon favoritado com sucesso"))
+      .then((response) => {
+        alert("Pokemon favoritado com sucesso");
+        handleClosedPokemonModal();
+      })
       .catch((err) => {
         api.delete(`users/${user}/starred/${name}`);
         alert("Pokemon deletado dos favoritos com sucesso!");
+        handleClosedPokemonModal();
       });
   };
-
-  useEffect(() => {
-    console.log("pokemonsFavoritados foi alterado.");
-  }, [user]);
 
   return (
     <Modal
@@ -61,9 +61,9 @@ const PokemonModal = ({
         {user ? (
           <button type="button" onClick={handleStarred}>
             {pokemonsFavoritados?.some((pokemon) => pokemon.id === id) ? (
-              <FiStar style={{ color: "yellow" }} />
+              <FiStar size={40} style={{ color: "yellow" }} />
             ) : (
-              <FiStar style={{ color: "black" }} />
+              <FiStar size={40} style={{ color: "black" }} />
             )}
           </button>
         ) : (

@@ -19,12 +19,11 @@ export const Container = styled.div`
     color: #fff;
   }
 
-  .starred {
-    color: yellow;
-  }
-
-  .noStarred {
-    color: black;
+  button {
+    margin-top: 1rem;
+    background-color: #181820;
+    border: none;
+    cursor: pointer;
   }
 `;
 

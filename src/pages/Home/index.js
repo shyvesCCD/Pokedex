@@ -77,6 +77,7 @@ const Home = () => {
       <Header
         handleOpenModal={handleOpenModal}
         handleOpenRegisterModal={handleOpenRegisterModal}
+        pokemonsFavoritados={pokemonsFavoritados}
       />
       {loading ? (
         <div className="loading-screen">

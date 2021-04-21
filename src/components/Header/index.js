@@ -26,7 +26,7 @@ const object = {
   key: Math.random(),
 };
 
-const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
+const Header = ({ handleOpenModal, handleOpenRegisterModal, pokemonsFavoritados }) => {
   const [value, setValue] = useState("");
   const [pokemon, setPokemon] = useState(object);
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
@@ -132,6 +132,7 @@ const Header = ({ handleOpenModal, handleOpenRegisterModal }) => {
           kind={pokemon.kind}
           key={pokemon.id}
           id={pokemon.id}
+          pokemonsFavoritados={pokemonsFavoritados}
         />
       </Container>
     </>

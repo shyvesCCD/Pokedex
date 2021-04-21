@@ -14,6 +14,7 @@ const PokemonSearchModal = ({
   weight,
   image,
   kind,
+  pokemonsFavoritados,
 }) => {
   const types = kind.split(";");
 
@@ -22,8 +23,15 @@ const PokemonSearchModal = ({
   const handleStarred = () => {
     api
       .post(`users/${user}/starred/${name}`)
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+      .then((response) => {
+        alert("Pokemon favoritado com sucesso");
+        handleClosedPokemonSearchModal();
+      })
+      .catch((err) => {
+        api.delete(`users/${user}/starred/${name}`);
+        alert("Pokemon deletado dos favoritos com sucesso!");
+        handleClosedPokemonSearchModal();
+      });
   };
 
   return (
@@ -50,14 +58,18 @@ const PokemonSearchModal = ({
               {type}
             </Cardzinhos>
           ))}
-          {user ? (
-            <button type="button" onClick={handleStarred}>
-              <FiStar />
-            </button>
-          ) : (
-            <></>
-          )}
         </ContainerCard>
+        {user ? (
+          <button type="button" onClick={handleStarred}>
+            {pokemonsFavoritados?.some((pokemon) => pokemon.id === id) ? (
+              <FiStar size={40} />
+            ) : (
+              <FiStar size={40} />
+            )}
+          </button>
+        ) : (
+          <></>
+        )}
       </Container>
     </Modal>
   );

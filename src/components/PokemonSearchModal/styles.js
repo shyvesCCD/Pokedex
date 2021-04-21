@@ -17,6 +17,13 @@ export const Container = styled.div`
   h4 {
     color: #fff;
   }
+
+  button {
+    margin-top: 1rem;
+    background-color: #181820;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 export const Cardzinhos = styled.p`
