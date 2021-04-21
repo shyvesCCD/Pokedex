@@ -20,13 +20,6 @@ const PokemonModal = ({
   const { user } = useContext(UserContext);
 
   const handleStarred = () => {
-    // api.get(`users/${user}`).then((response) => {
-    /*
-        A gente consegue favoritar um pokemon clicando no botão de favoritar, quando ativado o handleStarred
-        da um post e meu user é atualizado. Porém quando este pokemon já estiver favoritado eu quero desfavoritar
-        o mesmo.
-      */
-    // });
     api
       .post(`users/${user}/starred/${name}`)
       .then((response) => alert("Pokemon favoritado com sucesso"))
