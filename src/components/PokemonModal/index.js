@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Modal from "react-modal";
 import { Container, Cardzinhos, ContainerCard } from "./styles";
 import { FiStar } from "react-icons/fi";
@@ -20,11 +20,25 @@ const PokemonModal = ({
   const { user } = useContext(UserContext);
 
   const handleStarred = () => {
+    // api.get(`users/${user}`).then((response) => {
+    /*
+        A gente consegue favoritar um pokemon clicando no botão de favoritar, quando ativado o handleStarred
+        da um post e meu user é atualizado. Porém quando este pokemon já estiver favoritado eu quero desfavoritar
+        o mesmo.
+      */
+    // });
     api
       .post(`users/${user}/starred/${name}`)
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+      .then((response) => alert("Pokemon favoritado com sucesso"))
+      .catch((err) => {
+        api.delete(`users/${user}/starred/${name}`);
+        alert("Pokemon deletado dos favoritos com sucesso!");
+      });
   };
+
+  useEffect(() => {
+    console.log("pokemonsFavoritados foi alterado.");
+  }, [user]);
 
   return (
     <Modal

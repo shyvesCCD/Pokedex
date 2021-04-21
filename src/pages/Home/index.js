@@ -51,7 +51,6 @@ const Home = () => {
       .catch((err) => {
         console.error(err);
       });
-
     api
       .get(`users/${user}`)
       .then((response) => setPokemonsFavoritados(response.data.pokemons));
