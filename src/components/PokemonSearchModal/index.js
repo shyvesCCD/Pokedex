@@ -15,6 +15,7 @@ const PokemonSearchModal = ({
   image,
   kind,
   pokemonsFavoritados,
+  setPokemonsFavoritados,
 }) => {
   const types = kind.split(";");
 
@@ -24,16 +25,25 @@ const PokemonSearchModal = ({
     api
       .post(`users/${user}/starred/${name}`)
       .then((response) => {
-        alert("Pokemon favoritado com sucesso");
-        handleClosedPokemonSearchModal();
+        setPokemonsFavoritados([
+          ...pokemonsFavoritados,
+          {
+            name: name,
+            id: id,
+            image: image,
+            height: height,
+            weight: weight,
+            kind: kind,
+          },
+        ]);
       })
       .catch((err) => {
         api.delete(`users/${user}/starred/${name}`);
-        alert("Pokemon deletado dos favoritos com sucesso!");
-        handleClosedPokemonSearchModal();
+        setPokemonsFavoritados(
+          pokemonsFavoritados.filter((pokemon) => pokemon.id !== id)
+        );
       });
   };
-
   return (
     <Modal
       isOpen={isOpen}

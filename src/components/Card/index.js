@@ -9,6 +9,7 @@ const Cards = ({
   height,
   weight,
   pokemonsFavoritados,
+  setPokemonsFavoritados,
 }) => {
   const [modalPokemon, setPokemonModal] = useState(false);
 
@@ -49,6 +50,7 @@ const Cards = ({
         key={id}
         id={id}
         pokemonsFavoritados={pokemonsFavoritados}
+        setPokemonsFavoritados={setPokemonsFavoritados}
       />
     </>
   );

@@ -15,6 +15,7 @@ const PokemonModal = ({
   image,
   kind,
   pokemonsFavoritados,
+  setPokemonsFavoritados,
 }) => {
   const types = kind.split(";");
   const { user } = useContext(UserContext);
@@ -23,15 +24,27 @@ const PokemonModal = ({
     api
       .post(`users/${user}/starred/${name}`)
       .then((response) => {
-        alert("Pokemon favoritado com sucesso");
-        handleClosedPokemonModal();
+        setPokemonsFavoritados([
+          ...pokemonsFavoritados,
+          {
+            name: name,
+            id: id,
+            image: image,
+            height: height,
+            weight: weight,
+            kind: kind,
+          },
+        ]);
       })
       .catch((err) => {
         api.delete(`users/${user}/starred/${name}`);
-        alert("Pokemon deletado dos favoritos com sucesso!");
-        handleClosedPokemonModal();
+        setPokemonsFavoritados(
+          pokemonsFavoritados.filter((pokemon) => pokemon.id !== id)
+        );
       });
   };
+
+  console.log(pokemonsFavoritados);
 
   return (
     <Modal
@@ -53,7 +66,7 @@ const PokemonModal = ({
         </h4>
         <ContainerCard>
           {types.map((type) => (
-            <Cardzinhos key={Math.random()} type={type}>
+            <Cardzinhos key={type} type={type}>
               {type}
             </Cardzinhos>
           ))}

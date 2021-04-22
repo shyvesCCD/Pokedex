@@ -51,9 +51,13 @@ const Home = () => {
       .catch((err) => {
         console.error(err);
       });
-    api
-      .get(`users/${user}`)
-      .then((response) => setPokemonsFavoritados(response.data.pokemons));
+    if (!user) {
+      return;
+    } else {
+      api
+        .get(`users/${user}`)
+        .then((response) => setPokemonsFavoritados(response.data.pokemons));
+    }
   }, [nextPage, user]);
 
   const handleChangePageNext = () => {
@@ -78,6 +82,7 @@ const Home = () => {
         handleOpenModal={handleOpenModal}
         handleOpenRegisterModal={handleOpenRegisterModal}
         pokemonsFavoritados={pokemonsFavoritados}
+        setPokemonsFavoritados={setPokemonsFavoritados}
       />
       {loading ? (
         <div className="loading-screen">
@@ -102,6 +107,7 @@ const Home = () => {
                   height={pokemon.height}
                   weight={pokemon.weight}
                   pokemonsFavoritados={pokemonsFavoritados}
+                  setPokemonsFavoritados={setPokemonsFavoritados}
                 />
               </>
             ))}
