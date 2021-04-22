@@ -72,9 +72,9 @@ const PokemonSearchModal = ({
         {user ? (
           <button type="button" onClick={handleStarred}>
             {pokemonsFavoritados?.some((pokemon) => pokemon.id === id) ? (
-              <FiStar size={40} />
+              <FiStar size={40} style={{ color: "#F7CF23", fill: "#F7CF23" }} />
             ) : (
-              <FiStar size={40} />
+              <FiStar size={40} style={{ color: "#F7CF23", fill: "#21212b" }} />
             )}
           </button>
         ) : (
