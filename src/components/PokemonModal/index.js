@@ -44,8 +44,6 @@ const PokemonModal = ({
       });
   };
 
-  console.log(pokemonsFavoritados);
-
   return (
     <Modal
       isOpen={isOpen}
