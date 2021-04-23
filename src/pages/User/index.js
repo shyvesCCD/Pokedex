@@ -23,7 +23,6 @@ const User = () => {
     setLoading(true);
     api.get(`users/${userLogado}`).then((response) => {
       setPokemons(response.data.pokemons);
-      console.log(response);
       setUser(response.data.user.username);
       setLoading(false);
     });
