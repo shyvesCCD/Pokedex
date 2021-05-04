@@ -18,7 +18,6 @@ const Cards = ({
   };
 
   const handleClosedPokemonModal = () => {
-
     setPokemonModal(false);
   };
 
