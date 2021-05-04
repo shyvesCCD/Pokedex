@@ -45,10 +45,9 @@ export const GlobalStyle = createGlobalStyle`
 
   .Container-Content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
   }
 
   .Container-left {

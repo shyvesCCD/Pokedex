@@ -19,6 +19,7 @@ const Home = () => {
   const [pageNext, setPageNext] = useState(0);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [modalRegister, setModalRegister] = useState(false);
   const [user, setUser] = useState("");
   const [pokemonsFavoritados, setPokemonsFavoritados] = useState([]);
