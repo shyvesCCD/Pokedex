@@ -1,6 +1,7 @@
 import { Container, Title, Cardzinhos, Image, ContainerImage } from "./styles";
 import { useState } from "react";
 import PokemonModal from "../PokemonModal";
+
 const Cards = ({
   name,
   image,
