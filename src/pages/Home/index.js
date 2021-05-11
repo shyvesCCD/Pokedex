@@ -26,6 +26,7 @@ const Home = () => {
   const handleOpenModal = () => {
     setModal(true);
   };
+
   const handleClosedModal = () => {
     setModal(false);
   };
