@@ -32,6 +32,7 @@ const Header = ({
   pokemonsFavoritados,
   setPokemonsFavoritados,
 }) => {
+
   const [value, setValue] = useState("");
   const [pokemon, setPokemon] = useState(object);
   const [modalSearchPokemon, setModalPokemonSearch] = useState(false);
